@@ -1,10 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #ffe6f2;
-    color: #333;
+    background-color: #ffe4e1; /* Pastel pink background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -12,7 +14,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #ffccdf;
+    background-color: #ffcccb; /* Light pink header */
     color: #fff;
 }
 
@@ -29,23 +31,13 @@ nav ul {
 nav a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
 }
 
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background-color: #ffcce6;
-    color: #333;
-}
-
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.2em;
+    background-color: #fff0f5; /* Lavender blush */
+    flex: 1;
 }
 
 .products {
@@ -56,17 +48,16 @@ nav a {
 }
 
 .product {
-    border: 1px solid #ff99cc;
-    border-radius: 10px;
+    border: 1px solid #ffcccb; /* Light pink border */
     padding: 20px;
     text-align: center;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .product:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .product img {
@@ -78,55 +69,45 @@ nav a {
 .product h2 {
     font-size: 1.5em;
     margin: 10px 0;
-    color: #cc0066;
 }
 
 .product p {
     font-size: 1em;
     margin: 10px 0;
-    color: #666;
 }
 
 .product button {
     padding: 10px 20px;
-    background-color: #ff80bf;
+    background-color: #ff69b4; /* Hot pink */
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .product button:hover {
-    background-color: #e673a5;
+    background-color: #ff1493; /* Deeper pink */
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffccdf;
-    color: #fff;
-}
-
-.cart-modal {
+#cart-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-.cart-content {
-    background-color: #fff;
-    margin: 10% auto;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
     border-radius: 10px;
 }
 
@@ -144,21 +125,53 @@ footer {
     cursor: pointer;
 }
 
-#cart-items {
-    margin-bottom: 20px;
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-#checkout-button {
-    padding: 10px 20px;
-    background-color: #ff80bf;
+.cart-item img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.cart-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item button {
+    padding: 5px 10px;
+    background-color: #ff69b4; /* Hot pink */
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
+    margin-top: 5px;
 }
 
-#checkout-button:hover {
-    background-color: #e673a5;
+.cart-item button:hover {
+    background-color: #ff1493; /* Deeper pink */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffcccb; /* Light pink footer */
+    color: #fff;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
 }
